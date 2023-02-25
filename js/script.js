@@ -113,8 +113,11 @@ let crossIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 function optionSelected(answer){
     clearInterval(counter); //clear counter
     clearInterval(counterLine); //clear counterLine
-    let userAns = answer.textContent; //getting user selected option
+    let userAns = document.getElementsByClassName("option").item(0).firstChild.getAttribute("src"); //getting user selected option
     let correcAns = questions[que_count].answer; //getting correct answer from array
+    // console.log(answer);
+    console.log(userAns);
+    console.log(correcAns);
     const allOptions = option_list.children.length; //getting all option items
     
     if(userAns == correcAns){ //if user selected option is equal to array's correct answer
