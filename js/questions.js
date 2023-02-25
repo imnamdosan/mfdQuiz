@@ -3,7 +3,7 @@ let questions = [
     {
     numb: 1,
     question: "Which sperm is normal?",
-    answer: "Hyper Text Markup Language",
+    answer: "../mfdQuiz/Images/Abnormal/1.jpg",
     options: [
       "../mfdQuiz/Images/Abnormal/1.jpg",
       "../mfdQuiz/Images/Abnormal/1.jpg"
