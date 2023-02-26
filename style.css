@@ -8,10 +8,10 @@
 }
 
 body{
-    background-image: url('background2.gif');
+    background-image: url('background.gif');
     background-repeat: repeat;
     /*To make gif fullscreen add below */
-    /* background-size: cover; */ 
+    background-size: cover; 
 }
 
 ::selection{
