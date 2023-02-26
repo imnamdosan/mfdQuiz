@@ -8,8 +8,8 @@
 }
 
 body{
-    background-image: url('background.gif');
-    background-repeat: repeat;
+    background-image: url('background.gif'); /*Changed path to the desired image path*/
+    background-repeat: repeat; /*Remove this if background is just an image*/
     /*To make gif fullscreen add below */
     background-size: cover; 
 }
