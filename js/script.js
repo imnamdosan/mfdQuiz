@@ -113,23 +113,28 @@ let crossIconTag = '<div class="icon cross"><i class="fas fa-times" id="cross"><
 function optionSelected(answer){
     clearInterval(counter); //clear counter
     clearInterval(counterLine); //clear counterLine
-    let userAns = document.getElementsByClassName("option").item(0).firstChild.getAttribute("src"); //getting user selected option
+    // console.log(document.getElementsByClassName("option"));
+    // let userAns = document.getElementsByClassName("option").item(0).firstChild.getAttribute("src"); //getting user selected option
+    let userAns = answer.firstChild.getAttribute("src");
     let correcAns = questions[que_count].answer; //getting correct answer from array
-    // console.log(answer);
     console.log(userAns);
     console.log(correcAns);
     const allOptions = option_list.children.length; //getting all option items
     
     if(userAns == correcAns){ //if user selected option is equal to array's correct answer
-        userScore += 1; //upgrading score value with 1
+        if (questions[que_count].numb > 5){
+            userScore += 5000;
+        }else{
+            userScore += 1000; //upgrading score value with 1
+        }
         answer.classList.add("correct"); //adding green color to correct selected option
         answer.insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to correct selected option
-        console.log("Correct Answer");
-        console.log("Your correct answers = " + userScore);
+        // console.log("Correct Answer");
+        // console.log("Your correct answers = " + userScore);
     }else{
         answer.classList.add("incorrect"); //adding red color to correct selected option
         answer.insertAdjacentHTML("beforeend", crossIconTag); //adding cross icon to correct selected option
-        console.log("Wrong Answer");
+        // console.log("Wrong Answer");
 
         for(i=0; i < allOptions; i++){
             if(option_list.children[i].textContent == correcAns){ //if there is an option which is matched to an array answer 
@@ -150,17 +155,17 @@ function showResult(){
     quiz_box.classList.remove("activeQuiz"); //hide quiz box
     result_box.classList.add("activeResult"); //show result box
     const scoreText = result_box.querySelector(".score_text");
-    if (userScore > 3){ // if user scored more than 3
+    if (userScore > 10000){ // if user scored more than 10k
         //creating a new span tag and passing the user score number and total question number
-        let scoreTag = '<span>Congrats! 🎉, You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+        let scoreTag = '<span>Congrats! 🎉, You scored <p>'+ userScore +'</p></span>';
         scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
     }
-    else if(userScore > 1){ // if user scored more than 1
-        let scoreTag = '<span>Nice 😎, You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+    else if(userScore > 40000){ // if user scored more than 40k
+        let scoreTag = '<span>Nice 😎, You got <p>'+ userScore +'</p></span>';
         scoreText.innerHTML = scoreTag;
     }
-    else{ // if user scored less than 1
-        let scoreTag = '<span> 😐, You got only <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+    else{ // if user scored less than 40k
+        let scoreTag = '<span> 😐, You got only <p>'+ userScore +'</p></span>';
         scoreText.innerHTML = scoreTag;
     }
 }
@@ -199,7 +204,7 @@ function startTimerLine(time){
     function timer(){
         time += 1; //upgrading time value with 1
         time_line.style.width = time + "px"; //increasing width of time_line with px by time value
-        if(time > 1000){ //if time value is greater than 549
+        if(time > 1000){ //if time value is greater than 1000
             clearInterval(counterLine); //clear counterLine
         }
     }
