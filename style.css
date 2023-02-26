@@ -234,6 +234,18 @@ section .option_list .option.disabled{
     pointer-events: none;
 }
 
+#checkmark {
+    position:fixed;
+    margin-top: 5px;
+    margin-left: -6.7px;
+}
+
+#cross {
+    position:fixed;
+    margin-top: 4.5px;
+    margin-left: -4.7px;
+}
+
 section .option_list .option .icon{
     height: 26px;
     width: 26px;
