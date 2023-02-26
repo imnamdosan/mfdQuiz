@@ -92,10 +92,12 @@ next_btn.onclick = ()=>{
 function showQuetions(index){
     const que_text = document.querySelector(".que_text");
     //creating a new span and div tag for question and option and passing the value using array index
-    let que_tag = '<span>'+ questions[index].numb + ". " + questions[index].question +'</span>';
+    let que_tag = '<span>'+ "HARD DIFFICULTY (+5000 points)" +'</span>';
     let option_tag = '<div class="option">' + `<img src="${questions[index].options[0]}" width="260" height="260">` + '</div>'
     + '<div class="option">' + `<img src="${questions[index].options[1]}" width="260" height="260">` + '</div>';
-    que_text.innerHTML = que_tag; //adding new span tag inside que_tag
+    if (que_count > 5){
+        que_text.innerHTML = que_tag; //adding new span tag inside que_tag
+    }
     option_list.innerHTML = option_tag; //adding new div tag inside option_tag
     
     const option = option_list.querySelectorAll(".option");
@@ -155,16 +157,16 @@ function showResult(){
     quiz_box.classList.remove("activeQuiz"); //hide quiz box
     result_box.classList.add("activeResult"); //show result box
     const scoreText = result_box.querySelector(".score_text");
-    if (userScore > 10000){ // if user scored more than 10k
+    if (userScore > 20000){ // if user scored more than 20k
         //creating a new span tag and passing the user score number and total question number
         let scoreTag = '<span>Congrats! 🎉, You scored <p>'+ userScore +'</p></span>';
         scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
     }
-    else if(userScore > 40000){ // if user scored more than 40k
+    else if(userScore > 10000){ // if user scored more than 10k
         let scoreTag = '<span>Nice 😎, You got <p>'+ userScore +'</p></span>';
         scoreText.innerHTML = scoreTag;
     }
-    else{ // if user scored less than 40k
+    else{ // if user scored less than 10k
         let scoreTag = '<span> 😐, You got only <p>'+ userScore +'</p></span>';
         scoreText.innerHTML = scoreTag;
     }
