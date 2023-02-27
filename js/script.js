@@ -92,7 +92,7 @@ next_btn.onclick = ()=>{
 function showQuestions(index){
     const que_text = document.querySelector(".que_text");
     //creating a new span and div tag for question and option and passing the value using array index
-    let que_tag = '<span>'+ "HARD DIFFICULTY (+5000 points)" +'</span>';
+    let que_tag = '<span>'+ "HARD" +'</span>';
     let option_tag = '<div class="option">' + `<img src="${questions[index].options[0]}" width="260" height="260">` + '</div>'
     + '<div class="option">' + `<img src="${questions[index].options[1]}" width="260" height="260">` + '</div>';
     if (que_count > 5){
@@ -115,8 +115,6 @@ let crossIconTag = '<div class="icon cross"><i class="fas fa-times" id="cross"><
 function optionSelected(answer){
     clearInterval(counter); //clear counter
     clearInterval(counterLine); //clear counterLine
-    // console.log(document.getElementsByClassName("option"));
-    // let userAns = document.getElementsByClassName("option").item(0).firstChild.getAttribute("src"); //getting user selected option
     let userAns = answer.firstChild.getAttribute("src");
     let correcAns = questions[que_count].answer; //getting correct answer from array
     console.log(userAns);
@@ -131,12 +129,9 @@ function optionSelected(answer){
         }
         answer.classList.add("correct"); //adding green color to correct selected option
         answer.insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to correct selected option
-        // console.log("Correct Answer");
-        // console.log("Your correct answers = " + userScore);
     }else{
         answer.classList.add("incorrect"); //adding red color to correct selected option
         answer.insertAdjacentHTML("beforeend", crossIconTag); //adding cross icon to correct selected option
-        // console.log("Wrong Answer");
 
         for(i=0; i < allOptions; i++){
             if(option_list.children[i].textContent == correcAns){ //if there is an option which is matched to an array answer 
