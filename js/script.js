@@ -50,6 +50,7 @@ restart_quiz.onclick = ()=>{
     que_numb = 1;
     userScore = 0;
     widthValue = 0;
+    quizHeader.classList.remove("quiz_box_hard")
     showQuestions(que_count); //calling showQestions function
     queCounter(que_numb); //passing que_numb value to queCounter
     clearInterval(counter); //clear counter
@@ -92,11 +93,13 @@ next_btn.onclick = ()=>{
 function showQuestions(index){
     const que_text = document.querySelector(".que_text");
     //creating a new span and div tag for question and option and passing the value using array index
-    let que_tag = '<span>'+ "HARD" +'</span>';
+    // let que_tag = '<span>'+ "HARD" +'</span>';
     let option_tag = '<div class="option">' + `<img src="${questions[index].options[0]}" width="260" height="260">` + '</div>'
     + '<div class="option">' + `<img src="${questions[index].options[1]}" width="260" height="260">` + '</div>';
     if (que_count > 5){
-        que_text.innerHTML = que_tag; //adding new span tag inside que_tag
+        // que_text.innerHTML = que_tag; //adding new span tag inside que_tag
+        const quizHeader = document.getElementById("quizHeader");
+        quizHeader.classList.add("quiz_box_hard")
     }
     option_list.innerHTML = option_tag; //adding new div tag inside option_tag
     
